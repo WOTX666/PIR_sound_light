@@ -7,6 +7,7 @@ volatile bool startTimer = false;
 bool printMotion = false;
 const unsigned long timeSeconds =  1000UL;
 
+
 void ARDUINO_ISR_ATTR motionISR() {
   lastTrigger = millis();
   startTimer = true;
@@ -16,7 +17,6 @@ void setup() {
   Serial.begin(115200);
   pinMode(motionSensor, INPUT_PULLUP);
   attachInterrupt(motionSensor, motionISR, RISING);
-
 
   pinMode(led, OUTPUT);
   digitalWrite(led, LOW);
